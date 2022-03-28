@@ -8,12 +8,12 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="scr/credito.js"></script>
   </head>
-  <body>
+  <body onload="recuperarLocal()">
     <div id="container">
       <header id="header">
         <nav class="menu">
           <ul>
-            <li class="btn_1"><a href="home.html">Home</a></li>
+            <li class="btn_1"><a href="index.html">Home</a></li>
             <li class="btn_2"><a href="weather.html">Tiempo</a></li>
             <li class="btn_3"><a href="credito.html">Crédito</a></li>
             <li class="btn_4"><a href="#">Servicios</a></li>
@@ -31,48 +31,81 @@
       </header>
 
       <div id="main">
-        <br /><br /><br />
-        <h3>
-          Fecha Nacimiento:
-          <input
-            type="date"
-            id="fechaNacimiento"
-            min="1900-01-01"
-            max="2022-12-31"
-            required
-          />
-        </h3>
-        <h1 id="edad"></h1>
-        <br /><br /><br />
-        <!-- <form action="http://www2.gonzalonazareno.org/josedom/resultado.php" method="post">
-                <br> <br> 
-                <h3>Correo Electrónico: <input type="email" name="email" required /></h3>
-                <br />
-                <h3> Nombre: <input type="text" name="nombre" autofocus required /></h1> 
-                <br />
-                <h3>Fecha Nacimiento: <input type="date" name="fecha"required /></h3>
-                <br />
-                <h3>Salario neto Mensual: <input type="number" name="salario>"required/></h3>
-                <br />
-                <h3>Tasa de interes anual: <input type="number" name="interes" value="7.10" readonly/></h3>
-                <br />
-                <h3>Plazo en años: <input type="range" name="plazo" min="1" max="30" maxrequired/></h3>
-                <br />
-                <h3>Valor de la vivienda: <input type="number" name="vivienda" required/></h3>
-                <br />
-                <h3>Monto a Solicitar: <input type="number" name="Monto" required/></h3>
-                <br />
-                
-                 <button>Calcular</button>
-                <input type="text" name="pago_mensual" readonly>
-                <br>
-                  
-            </form> -->
+        <form class="contact_form" id="contact_form">
+          <div>
+              <ul>
+                  <li>
+                      <h2>Crédito</h2>
+                  </li>
+                  <li>
+                      <label for="name">Nombre:</label>
+                      <input type="text" name="nombre" />
+                  </li>
+                  <li>
+                      <label for="email">Email:</label>
+                      <input type="email" name="email" required />
+                      <span class="form_hint">Formato correcto: "nombre@something.com"</span>
+                  </li>
+                  <li>
+                      <label for="fnace">Fecha de Nacimiento:</label>
+                      <input type="date" name="fnace" required />
+                      <span class="form_hint">Formato correcto: "dd/mm/yyyy"</span>
+                  </li>
+                  <li>
+                      <label for="salneto">Salario Neto:</label>
+                      <input type="text" name="salneto" placeholder="500000.00" required />
+                      <span class="form_hint">Formato correcto: "#####.##"</span>
+                  </li>
+                  <li>
+                      <label for="txtVivienda">Valor de la Vivienda:</label>
+                      <input type="text" name="txtVivienda" placeholder="500000.00" required />
+                      <span class="form_hint">Formato correcto: "#####.##"</span>
+                  </li>
+                  <li>
+                      <label for="txtMonto">Monto a Solicitar:</label>
+                      <input type="text" name="txtMonto" placeholder="500000.00" required />
+                      <span class="form_hint">Formato correcto: "#####.##"</span>
+                  </li>
+                  <li>
+                      <label for="txtPlazo">Plazo en Años:</label>
+                      <input type="range" name="txtPlazo" min="5" max="30" required />
+                      <span class="required_notification">Rango de 5 a 30 años</span>
+                  </li>
+                  <li>
+                      <label for="txtTasa">Tasa Interés:</label>
+                      <input type="text" name="txtTasa" placeholder="7.10" readonly required />
+                  </li>
+                  <li>
+                      <label for="txtPM">Pago Mensual:</label>
+                      <input type="text" name="txtPM"  />
+                  </li>
+                  <li>
+                      <label for="txtINR">Ingreso neto Requerido:</label>
+                      <input type="text" name="txtINR" />
+                  </li>
+                  <li>
+                      <label for="txtPF">Porcentaje a Financiar:</label>
+                      <input type="text" name="txtPF" />
+                  </li>
+                  <li>
+                      <button type="button" class="submit" onclick="procesarCalculo()">Calcular Pago Mensual</button>
+                  </li>
+                  <li>
+                      <button type="button" class="submit" onclick="proyeccion()">Mostrar Proyección</button>
+                  </li>
+                  <li>
+                      <p id="lblValSalario"></p>
+                  </li>
+                  <li>
+                      <p id="lblValEdad"></p>
+                  </li> 
+              </ul>
+          </div>
       </div>
 
       <footer id="footer">
         <p>
-          <a href="home.html">Home</a> | <a href="weather.html">Tiempo</a> |
+          <a href="index.html">Home</a> | <a href="weather.html">Tiempo</a> |
           <a href="credito.html">Crédito</a> | <a href="#">Servicios</a> |
           <a href="contacto.html">Contáctenos</a><br />
           Copyright &copy; Real State Happy Eart
