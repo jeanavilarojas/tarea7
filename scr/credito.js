@@ -104,14 +104,14 @@ function proyeccion() {
     saldo = saldo - amortiza;
     htmlTabla += "<tr>";
     htmlTabla += "<td>" + i + "</td>";
-    htmlTabla += "<td>" + pm.toLocaleString();
-    +"</td>";
-    htmlTabla += "<td>" + interes.toLocaleString();
-    +"</td>";
-    htmlTabla += "<td>" + amortiza.toLocaleString();
-    +"</td>";
-    htmlTabla += "<td>" + saldo.toLocaleString();
-    +"</td>";
+    htmlTabla += "<td>" + pm.toLocaleString(); +
+    "</td>";
+    htmlTabla += "<td>" + interes.toLocaleString(); +
+    "</td>";
+    htmlTabla += "<td>" + amortiza.toLocaleString(); +
+    "</td>";
+    htmlTabla += "<td>" + saldo.toLocaleString(); +
+    "</td>";
     htmlTabla += "</tr>";
   }
   table.innerHTML = htmlTabla;

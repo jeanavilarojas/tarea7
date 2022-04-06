@@ -1,116 +1,113 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Crédito Happy Eart</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/home.css" rel="stylesheet" type="text/css" />
-    <link href="css/forms.css" rel="stylesheet" type="text/css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="scr/credito.js"></script>
-  </head>
-  <body onload="recuperarLocal()">
-    <div id="container">
-      <header id="header">
-        <nav class="menu">
+
+<head>
+  <title>Crédito Happy Eart</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="css/home.css" rel="stylesheet" type="text/css" />
+  <link href="css/forms.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="scr/credito.js"></script>
+</head>
+
+<body onload="recuperarLocal()">
+  <div id="container">
+    <header id="header">
+      <nav class="menu">
+        <ul>
+          <li class="btn_1"><a href="index.html">Home</a></li>
+          <li class="btn_2"><a href="weather.html">Tiempo</a></li>
+          <li class="btn_3"><a href="credito.html">Crédito</a></li>
+          <li class="btn_4"><a href="#">Servicios</a></li>
+          <li class="btn_5"><a href="contacto.html">Contáctenos</a></li>
+        </ul>
+      </nav>
+      <img src="images/logo.jpg" alt="" name="logo" width="251" height="45" id="logo" />
+    </header>
+
+    <div id="main">
+      <form class="contact_form" id="contact_form">
+        <div>
           <ul>
-            <li class="btn_1"><a href="index.html">Home</a></li>
-            <li class="btn_2"><a href="weather.html">Tiempo</a></li>
-            <li class="btn_3"><a href="credito.html">Crédito</a></li>
-            <li class="btn_4"><a href="#">Servicios</a></li>
-            <li class="btn_5"><a href="contacto.html">Contáctenos</a></li>
+            <li>
+              <h2>Crédito</h2>
+            </li>
+            <li>
+              <label for="name">Nombre:</label>
+              <input type="text" name="nombre" />
+            </li>
+            <li>
+              <label for="email">Email:</label>
+              <input type="email" name="email" required />
+              <span class="form_hint">Formato correcto: "nombre@something.com"</span>
+            </li>
+            <li>
+              <label for="fnace">Fecha de Nacimiento:</label>
+              <input type="date" name="fnace" required />
+              <span class="form_hint">Formato correcto: "dd/mm/yyyy"</span>
+            </li>
+            <li>
+              <label for="salneto">Salario Neto:</label>
+              <input type="text" name="salneto" placeholder="500000.00" required />
+              <span class="form_hint">Formato correcto: "#####.##"</span>
+            </li>
+            <li>
+              <label for="txtVivienda">Valor de la Vivienda:</label>
+              <input type="text" name="txtVivienda" placeholder="500000.00" required />
+              <span class="form_hint">Formato correcto: "#####.##"</span>
+            </li>
+            <li>
+              <label for="txtMonto">Monto a Solicitar:</label>
+              <input type="text" name="txtMonto" placeholder="500000.00" required />
+              <span class="form_hint">Formato correcto: "#####.##"</span>
+            </li>
+            <li>
+              <label for="txtPlazo">Plazo en Años:</label>
+              <input type="range" name="txtPlazo" min="5" max="30" required />
+              <span class="required_notification">Rango de 5 a 30 años</span>
+            </li>
+            <li>
+              <label for="txtTasa">Tasa Interés:</label>
+              <input type="text" name="txtTasa" placeholder="7.10" readonly required />
+            </li>
+            <li>
+              <label for="txtPM">Pago Mensual:</label>
+              <input type="text" name="txtPM" />
+            </li>
+            <li>
+              <label for="txtINR">Ingreso neto Requerido:</label>
+              <input type="text" name="txtINR" />
+            </li>
+            <li>
+              <label for="txtPF">Porcentaje a Financiar:</label>
+              <input type="text" name="txtPF" />
+            </li>
+            <li>
+              <button type="button" class="submit" onclick="procesarCalculo()">Calcular Pago Mensual</button>
+            </li>
+            <li>
+              <button type="button" class="submit" onclick="proyeccion()">Mostrar Proyección</button>
+            </li>
+            <li>
+              <p id="lblValSalario"></p>
+            </li>
+            <li>
+              <p id="lblValEdad"></p>
+            </li>
           </ul>
-        </nav>
-        <img
-          src="images/logo.jpg"
-          alt=""
-          name="logo"
-          width="251"
-          height="45"
-          id="logo"
-        />
-      </header>
-
-      <div id="main">
-        <form class="contact_form" id="contact_form">
-          <div>
-              <ul>
-                  <li>
-                      <h2>Crédito</h2>
-                  </li>
-                  <li>
-                      <label for="name">Nombre:</label>
-                      <input type="text" name="nombre" />
-                  </li>
-                  <li>
-                      <label for="email">Email:</label>
-                      <input type="email" name="email" required />
-                      <span class="form_hint">Formato correcto: "nombre@something.com"</span>
-                  </li>
-                  <li>
-                      <label for="fnace">Fecha de Nacimiento:</label>
-                      <input type="date" name="fnace" required />
-                      <span class="form_hint">Formato correcto: "dd/mm/yyyy"</span>
-                  </li>
-                  <li>
-                      <label for="salneto">Salario Neto:</label>
-                      <input type="text" name="salneto" placeholder="500000.00" required />
-                      <span class="form_hint">Formato correcto: "#####.##"</span>
-                  </li>
-                  <li>
-                      <label for="txtVivienda">Valor de la Vivienda:</label>
-                      <input type="text" name="txtVivienda" placeholder="500000.00" required />
-                      <span class="form_hint">Formato correcto: "#####.##"</span>
-                  </li>
-                  <li>
-                      <label for="txtMonto">Monto a Solicitar:</label>
-                      <input type="text" name="txtMonto" placeholder="500000.00" required />
-                      <span class="form_hint">Formato correcto: "#####.##"</span>
-                  </li>
-                  <li>
-                      <label for="txtPlazo">Plazo en Años:</label>
-                      <input type="range" name="txtPlazo" min="5" max="30" required />
-                      <span class="required_notification">Rango de 5 a 30 años</span>
-                  </li>
-                  <li>
-                      <label for="txtTasa">Tasa Interés:</label>
-                      <input type="text" name="txtTasa" placeholder="7.10" readonly required />
-                  </li>
-                  <li>
-                      <label for="txtPM">Pago Mensual:</label>
-                      <input type="text" name="txtPM"  />
-                  </li>
-                  <li>
-                      <label for="txtINR">Ingreso neto Requerido:</label>
-                      <input type="text" name="txtINR" />
-                  </li>
-                  <li>
-                      <label for="txtPF">Porcentaje a Financiar:</label>
-                      <input type="text" name="txtPF" />
-                  </li>
-                  <li>
-                      <button type="button" class="submit" onclick="procesarCalculo()">Calcular Pago Mensual</button>
-                  </li>
-                  <li>
-                      <button type="button" class="submit" onclick="proyeccion()">Mostrar Proyección</button>
-                  </li>
-                  <li>
-                      <p id="lblValSalario"></p>
-                  </li>
-                  <li>
-                      <p id="lblValEdad"></p>
-                  </li> 
-              </ul>
-          </div>
-      </div>
-
-      <footer id="footer">
-        <p>
-          <a href="index.html">Home</a> | <a href="weather.html">Tiempo</a> |
-          <a href="credito.html">Crédito</a> | <a href="#">Servicios</a> |
-          <a href="contacto.html">Contáctenos</a><br />
-          Copyright &copy; Real State Happy Eart
-        </p>
-      </footer>
+        </div>
     </div>
-  </body>
+
+    <footer id="footer">
+      <p>
+        <a href="index.html">Home</a> | <a href="weather.html">Tiempo</a> |
+        <a href="credito.html">Crédito</a> | <a href="#">Servicios</a> |
+        <a href="contacto.html">Contáctenos</a><br />
+        Copyright &copy; Real State Happy Eart
+      </p>
+    </footer>
+  </div>
+</body>
+
 </html>
