@@ -312,11 +312,17 @@ p a:hover {
     padding-bottom: 50px;
 }
 
-#tblw {
+table {
     width: 200px;
     border: solid;
-    border-width: 1px;
+    border-width: 2px;
+    border-color: #f56848;
+    margin-top: 10px;
+}
 
+table h3{
+    color: #f56848;
+    margin-bottom: 10px;
 }
 
 #thweat {
